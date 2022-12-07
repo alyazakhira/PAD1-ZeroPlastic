@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+*{
+    font-family: 'Quicksand', sans-serif;
+}
+
+.display-text{
+    font-size: 1.938rem;
+}
+
+.h1-text{
+    font-size: 1.562rem;
+}
+
+.h2-text{
+    font-size: 1.25rem;
+}
+
+.par-text{
+    font-size: 1rem;
+}
+
+.label-text{
+    font-size: 0.812rem;
+}
