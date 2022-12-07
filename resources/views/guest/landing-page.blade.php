@@ -20,7 +20,7 @@
         <link rel="stylesheet" href={{ asset('asset-style/font.css') }}>
         <link rel="stylesheet" href={{ asset('asset-style/guest-style1.css') }}>
     </head>
-    <body>
+    <body onload="load()">
         
         {{-- Navbar --}}
         <nav class="navbar navbar-expand-md navbar-dark sticky-top top-0 navbar-main">
@@ -113,25 +113,24 @@
 
         <!-- Statistic -->
         <div class="container statis">
-            <p class="display-6 text-center">Saat ini, Jumlah sampah plastik di dunia ada :</p>
+            <p class="display-6 text-center">Saat ini, Jumlah sampah di dunia ada :</p>
             <div class="row pt-5 gap-3 text-center justify-content-center">
                 <div class="col-md-5">
-                    <p class="stat-style">123, 000 Ton</p>
+                    <p class="stat-style"><span id="count-world">0</span> Miliar Ton</p>
                     <p class="stat-desc"> Di Dunia</p>
                     
                 </div>
                 <div class="col-md-5">
-                    <p class="stat-style">123, 000 Ton</p>
+                    <p class="stat-style"><span id="count-local">0</span> Juta Ton</p>
                     <p class="stat-desc">Di Indonesia</p>
                 </div>
             </div>
             <p class="mt-4 desc">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
-                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in 
-                culpa qui officia deserunt mollit anim id est laborum <span><a href="{{ route('article.detail',1) }}">Baca selengkapnya</a></span>
+                Dilansir dari situs resmi DPR RI, Anggota Komisi IV DPR RI Suhardi Duka menyoroti data 
+                Direktorat Jenderal Pengelolaan Sampah, Limbah dan B3 (Ditjen PSLB3) Kementerian 
+                Lingkungan Hidup dan Kehutanan (KLHK) pada tahun 2021, yang menyebutkan volume sampah 
+                di Indonesia tercatat 68,5 juta ton dan tahun 2022 naik mencapai 70 juta ton. 
+                <span><a href="{{ route('article.detail',1) }}">Baca selengkapnya</a></span>
             </p>
         </div>  
 
@@ -280,5 +279,43 @@
 
         <script src="asset-js/script.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+        <script>
+            function animate(obj, initVal, lastVal, duration) {
+               let startTime = null;
+      
+            //get the current timestamp and assign it to the currentTime variable
+            let currentTime = Date.now();
+      
+            //pass the current timestamp to the step function
+            const step = (currentTime ) => {
+      
+            //if the start time is null, assign the current time to startTime
+            if (!startTime) {
+               startTime = currentTime ;
+            }
+      
+            //calculate the value to be used in calculating the number to be displayed
+            const progress = Math.min((currentTime - startTime)/ duration, 1);
+      
+            //calculate what to be displayed using the value gotten above
+            obj.innerHTML = Math.floor(progress * (lastVal - initVal) + initVal);
+      
+            //checking to make sure the counter does not exceed the last value (lastVal)
+            if (progress < 1) {
+               window.requestAnimationFrame(step);
+            } else {
+                  window.cancelAnimationFrame(window.requestAnimationFrame(step));
+               }
+            };
+            //start animating
+               window.requestAnimationFrame(step);
+            }
+            let text1 = document.getElementById('count-world');
+            let text2 = document.getElementById('count-local');
+            const load = () => {
+               animate(text1, 0, 8, 4000);
+               animate(text2, 0, 70, 4000);
+            }
+         </script>
     </body>
 </html>
