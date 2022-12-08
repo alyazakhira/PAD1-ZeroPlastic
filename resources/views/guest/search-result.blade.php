@@ -5,6 +5,8 @@
 @endsection
 
 @section('content')
+<div class="min-vh-100">
+
     {{-- Article --}}
     @if(count($article))
         <section>
@@ -15,7 +17,6 @@
         </section>
         
         <div class="card border-0">
-
             <section class="scrollable-h">
                 <table class="table table-hover text-center">
                     <thead class="table-success">
@@ -100,5 +101,6 @@
         </div>
     @endif
     {{-- End of product --}}
-
+    
+</div>
 @endsection
