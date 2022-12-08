@@ -29,6 +29,12 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('12345')
         ]);
 
+        User::create([
+            'name' => 'Sky Zonhori',
+            'email' => 'sky.zonhori@gmail.com',
+            'password' => Hash::make('galaxsky')
+        ]);
+
         $this->call([
             ArticleSeeder::class,
             ProductSeeder::class,
