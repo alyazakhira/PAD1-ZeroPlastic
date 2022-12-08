@@ -130,7 +130,7 @@
                 Direktorat Jenderal Pengelolaan Sampah, Limbah dan B3 (Ditjen PSLB3) Kementerian 
                 Lingkungan Hidup dan Kehutanan (KLHK) pada tahun 2021, yang menyebutkan volume sampah 
                 di Indonesia tercatat 68,5 juta ton dan tahun 2022 naik mencapai 70 juta ton. 
-                <span><a href="{{ route('article.detail',1) }}">Baca selengkapnya</a></span>
+                <span><a href="{{ route('article.detail','sampah-mengintip-masa-depan-yang-ditimbulkannya-1') }}">Baca selengkapnya</a></span>
             </p>
         </div>  
 
@@ -147,7 +147,7 @@
                                 <img src="{{ asset('asset-article/'. $item->gambar) }}" class="card-img-top" alt="article-header">
                                 <div class="card-body">
                                 <h5 class="card-title">{{ $item->judul }}</h5>
-                                <p class="card-text">{{ $item->ringkasan }} <span><a href="{{ route('article.detail',$item->id) }}"> Selengkapnya</a></span></p>
+                                <p class="card-text">{{ $item->ringkasan }} <span><a href="{{ route('article.detail',$item->ar_slug) }}"> Selengkapnya</a></span></p>
                                 </div>
                             </div>
                             @endforeach
@@ -201,7 +201,7 @@
                                 <img src="{{ asset('asset-article/'. $item->gambar) }}" class="card-img-top" alt="header-web">
                                 <div class="card-body">
                                 <h5 class="card-title">{{ $item->judul }}</h5>
-                                <p class="card-text">{{ $item->ringkasan }} <span><a href="{{  route('article.detail',$item->id)  }}"> Selengkapnya</a></span></p>
+                                <p class="card-text">{{ $item->ringkasan }} <span><a href="{{  route('article.detail',$item->ar_slug)  }}"> Selengkapnya</a></span></p>
                                 </div>
                             </div>
                         </div>
