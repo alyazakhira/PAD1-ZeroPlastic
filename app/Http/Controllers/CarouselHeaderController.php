@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\CarouselHeader;
 use Illuminate\Http\Request;
+use Image;
 
 class CarouselHeaderController extends Controller
 {

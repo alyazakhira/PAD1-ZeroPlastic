@@ -35,7 +35,7 @@ class ArticleController extends Controller
         $foto = $request->gambar;
         $namaFile = time().'.'.$foto->getClientOriginalExtension();
 
-        Image::make($foto)->resize(1024,300,function ($constraint) {
+        Image::make($foto)->resize(1200,600,function ($constraint) {
             $constraint->aspectRatio();
             })->save('asset-article/'.$namaFile);
         $foto->move('uploaded-img/', $namaFile);

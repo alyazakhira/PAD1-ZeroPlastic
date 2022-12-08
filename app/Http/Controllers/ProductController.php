@@ -33,7 +33,7 @@ class ProductController extends Controller
         $produk->prod_slug = Str::slug($request->nama, '-').'-'.$produk->id;
         $produk->ringkasan = $request->ringkasan;
         $produk->deskripsi = $request->deskripsi;
-        $produk->uploaded_at = $request->uploaded_at;
+        $produk->diunggah_pada = $request->diunggah_pada;
 
         $foto = $request->gambar;
         $namaFile = time().'.'.$foto->getClientOriginalExtension();
@@ -64,7 +64,7 @@ class ProductController extends Controller
         $produk->prod_slug = Str::slug($request->nama, '-').'-'.$id;
         $produk->ringkasan = $request->ringkasan;
         $produk->deskripsi = $request->deskripsi;
-        $produk->uploaded_at = $request->uploaded_at;
+        $produk->diunggah_pada = $request->diunggah_pada;
 
         $foto = $request->gambar;
         $namaFile = time().'.'.$foto->getClientOriginalExtension();
