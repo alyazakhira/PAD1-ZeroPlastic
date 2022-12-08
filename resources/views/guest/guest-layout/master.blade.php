@@ -18,7 +18,7 @@
 
         <!-- Custom CSS -->
         <link rel="stylesheet" href={{ asset('asset-style/font.css') }}>
-        <link rel="stylesheet" href={{ asset('asset-style/guest-style1.css') }}>
+        <link rel="stylesheet" href={{ asset('asset-style/guest-style2.css') }}>
 
         @yield('add-style')
     </head>
@@ -39,7 +39,7 @@
                     <li class="nav-item"><a class="nav-link" href="/#berlangganan">Berlangganan</a></li>
                     <li class="nav-item"><a class="nav-link" href="/#tentangKami">Tentang Kami</a></li>
                     <li class="nav-item"><a class="nav-link @yield('prod-nav-status')" href="/product">Produk</a></li>
-                    <li class="nav-item"><a class="nav-link @yield('ar-nav-status')" href="/article">Artikel Terkait</a></li>
+                    <li class="nav-item"><a class="nav-link @yield('ar-nav-status')" href="/article">Artikel</a></li>
                 </ul>
                 <ul class="navbar-nav">
                     <form class="input-group" role="search" action="{{route('search')}}" method="POST">
@@ -78,7 +78,7 @@
                             </div>
                         </form>
                     </div>
-                    <div class="col-md-5 text-end link-footer">
+                    <div class="col-md-5 text-end text-footer">
                         <h3 class="mb-3">Media Sosial</h3>
                         <ul class="nav flex-column">
                             <li class="nav-item mb-2">

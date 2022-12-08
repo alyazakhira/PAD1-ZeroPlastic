@@ -18,7 +18,7 @@
 
         <!-- Custom CSS -->
         <link rel="stylesheet" href={{ asset('asset-style/font.css') }}>
-        <link rel="stylesheet" href={{ asset('asset-style/guest-style1.css') }}>
+        <link rel="stylesheet" href={{ asset('asset-style/guest-style2.css') }}>
     </head>
     <body onload="load()">
         
@@ -37,7 +37,7 @@
                     <li class="nav-item"><a class="nav-link active" href="/#berlangganan">Berlangganan</a></li>
                     <li class="nav-item"><a class="nav-link active" href="/#tentangKami">Tentang Kami</a></li>
                     <li class="nav-item"><a class="nav-link" href="/product">Produk</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/article">Artikel Terkait</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/article">Artikel</a></li>
                 </ul>
                 <ul class="navbar-nav">
                 <form class="input-group" role="search" action="{{route('search')}}" method="POST">
@@ -54,7 +54,7 @@
         </nav>
 
         <!-- Carousel Header -->
-        <div class="container mt-4 header" >
+        <div class="container my-5" >
             <div class="container">
                 <div id="slider-header" class="carousel slide" data-bs-ride="true">
                     <div class="carousel-indicators">
@@ -86,17 +86,17 @@
         </div>
 
         <!-- About Us -->
-        <div class="container about-us" id="tentangKami">
-            <div class="row g-0">
-                <div class="col-md-4 desc-style-1">
-                    <div class="p-5 rounded-circle desc-logo-style">
-                        <img src="asset-img/logo-svg.svg" class="img-fluid rounded-start p-3" alt="Logo">
+        <div class="container my-5" id="tentangKami">
+            <div class="row g-0 align-items-center justify-content-center">
+                <div class="col-md-4 align-self-center">
+                    <div class="rounded-circle desc-logo-style">
+                        <img src="asset-img/logo-svg.svg" class="rounded-start p-3" alt="Logo">
                     </div>
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-8 align-self-center">
                     <div class="card-body p-4">
-                        <p class="card-title display-6 pb-3">Tentang Kami</p>
-                        <p class="card-text desc">
+                        <h1 class="card-title h1-text pb-3">Tentang Kami</h1>
+                        <p class="card-text text-justify par-text">
                         Indonesia merupakan negara dengan urutan kedua dalam penyumbang sampah plastik di dunia. 
                         Oleh karena itu kami membuat suatu gerakan untuk menekan penggunaan plastik. Zero plastic 
                         adalah gerakan yang didirikan untuk mengajak kepada masyarakat luas untuk mengurangi 
@@ -112,20 +112,20 @@
         </div>
 
         <!-- Statistic -->
-        <div class="container statis">
-            <p class="display-6 text-center">Saat ini, Jumlah sampah di dunia ada :</p>
-            <div class="row pt-5 gap-3 text-center justify-content-center">
+        <div class="container my-5">
+            <p class="h1-text text-center">Total sampah saat ini:</p>
+            <div class="row mt-3 gap-3 text-center justify-content-center">
                 <div class="col-md-5">
-                    <p class="stat-style"><span id="count-world">0</span> Miliar Ton</p>
-                    <p class="stat-desc"> Di Dunia</p>
+                    <h2 class="display-text"><span id="count-world">0</span> Miliar Ton</h2>
+                    <p class="h2-text"> Di Dunia</p>
                     
                 </div>
                 <div class="col-md-5">
-                    <p class="stat-style"><span id="count-local">0</span> Juta Ton</p>
-                    <p class="stat-desc">Di Indonesia</p>
+                    <h2 class="display-text"><span id="count-local">0</span> Juta Ton</h2>
+                    <p class="h2-text">Di Indonesia</p>
                 </div>
             </div>
-            <p class="mt-4 desc">
+            <p class="mt-4 text-justify par-text">
                 Dilansir dari situs resmi DPR RI, Anggota Komisi IV DPR RI Suhardi Duka menyoroti data 
                 Direktorat Jenderal Pengelolaan Sampah, Limbah dan B3 (Ditjen PSLB3) Kementerian 
                 Lingkungan Hidup dan Kehutanan (KLHK) pada tahun 2021, yang menyebutkan volume sampah 
@@ -135,34 +135,38 @@
         </div>  
 
         <!-- Article -->
-        <div class="container slide-article">
+        <div class="container my-5">
 
             {{-- Desktop --}}
             <div id="slider" class="carousel slide d-none d-sm-block" data-bs-ride="true">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <div class="d-flex">
+                        <div class="row">
                             @foreach ($artikelLg as $item)
-                            <div class="card m-2 articles">
-                                <img src="{{ asset('asset-article/'. $item->gambar) }}" class="card-img-top" alt="article-header">
-                                <div class="card-body">
-                                <h5 class="card-title">{{ $item->judul }}</h5>
-                                <p class="card-text">{{ $item->ringkasan }} <span><a href="{{ route('article.detail',$item->ar_slug) }}"> Selengkapnya</a></span></p>
-                                </div>
-                            </div>
+                                <a class="text-decoration-none col-4" style="color: black" href="{{ route('article.detail',$item->ar_slug) }}">
+                                    <div class="card m-2 card-animate">
+                                        <img src="{{ asset('asset-article/'. $item->gambar) }}" class="card-img-top" alt="article-header">
+                                        <div class="card-body">
+                                            <h5 class="card-title card-text-title h2-text">{{ $item->judul }}</h5>
+                                            <p class="card-text card-text-par label-text">{{ $item->ringkasan }}</p>
+                                        </div>
+                                    </div>
+                                </a>
                             @endforeach
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <div class="d-flex">
+                        <div class="row">
                             @foreach ($artikelLgN as $item)
-                            <div class="card m-2 articles">
-                                <img src="{{ asset('asset-article/'. $item->gambar) }}" class="card-img-top" alt="article-header">
-                                <div class="card-body">
-                                <h5 class="card-title">{{ $item->judul }}</h5>
-                                <p class="card-text">{{ $item->ringkasan }} <span><a href="{{ route('article.detail',$item->ar_slug) }}"> Selengkapnya</a></span></p>
-                                </div>
-                            </div>
+                                <a class="text-decoration-none col-4" style="color: black" href="{{ route('article.detail',$item->ar_slug) }}">
+                                    <div class="card m-2 card-animate">
+                                        <img src="{{ asset('asset-article/'. $item->gambar) }}" class="card-img-top" alt="article-header">
+                                        <div class="card-body">
+                                            <h5 class="card-title card-text-title h2-text">{{ $item->judul }}</h5>
+                                            <p class="card-text card-text-par label-text">{{ $item->ringkasan }}</p>
+                                        </div>
+                                    </div>
+                                </a>
                             @endforeach
                         </div>
                     </div>
@@ -181,31 +185,35 @@
             <div id="sliderSmallScreen" class="carousel slide d-sm-none" data-bs-ride="true">
                 <div class="carousel-inner">
                     @foreach ($artikelSm as $item)
-                    <div class="carousel-item active">
-                        <div class="d-flex">
-                            <div class="card m-2">
-                                <img src="{{ asset('asset-article/'. $item->gambar) }}" class="card-img-top" alt="header-web">
-                                <div class="card-body">
-                                <h5 class="card-title">{{ $item->judul }}</h5>
-                                <p class="card-text">{{ $item->ringkasan }} <span><a href="{{ route('article.detail',$item->ar_slug) }}"> Selengkapnya</a></span></p>
-                                </div>
+                        <div class="carousel-item active">
+                            <div class="row">
+                                <a class="text-decoration-none col" style="color: black" href="{{ route('article.detail',$item->ar_slug) }}">
+                                    <div class="card m-2 card-animate">
+                                        <img src="{{ asset('asset-article/'. $item->gambar) }}" class="card-img-top" alt="header-web">
+                                        <div class="card-body">
+                                            <h5 class="card-title card-text-title h2-text">{{ $item->judul }}</h5>
+                                            <p class="card-text card-text-par label-text">{{ $item->ringkasan }}</p>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
                         </div>
-                    </div>
                     @endforeach
 
                     @foreach ($artikelSmN as $item)
-                    <div class="carousel-item">
-                        <div class="d-flex">
-                            <div class="card m-2">
-                                <img src="{{ asset('asset-article/'. $item->gambar) }}" class="card-img-top" alt="header-web">
-                                <div class="card-body">
-                                <h5 class="card-title">{{ $item->judul }}</h5>
-                                <p class="card-text">{{ $item->ringkasan }} <span><a href="{{  route('article.detail',$item->ar_slug)  }}"> Selengkapnya</a></span></p>
-                                </div>
+                        <div class="carousel-item">
+                            <div class="row">
+                                <a class="text-decoration-none col" style="color: black" href="{{ route('article.detail',$item->ar_slug) }}">
+                                    <div class="card m-2 card-animate">
+                                        <img src="{{ asset('asset-article/'. $item->gambar) }}" class="card-img-top" alt="header-web">
+                                        <div class="card-body">
+                                            <h5 class="card-title card-text-title h2-text">{{ $item->judul }}</h5>
+                                            <p class="card-text card-text-par label-text">{{ $item->ringkasan }} </p>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
                         </div>
-                    </div>
                     @endforeach
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#sliderSmallScreen" data-bs-slide="prev">
@@ -219,8 +227,8 @@
             </div>
 
             {{-- "More" button --}}
-            <div class="d-flex justify-content-center">
-                <a href="/article" class="btn btn-success">Lebih Banyak</a>
+            <div class="d-grid mt-3">
+                <a href="/article" class="btn btn-zp">Lainnya</a>
             </div>
         </div>
 
@@ -243,7 +251,7 @@
                             </div>
                         </form>
                     </div>
-                    <div class="col-md-5 text-end link-footer">
+                    <div class="col-md-5 text-end text-footer">
                         <h3 class="mb-3">Media Sosial</h3>
                         <ul class="nav flex-column">
                             <li class="nav-item mb-2">

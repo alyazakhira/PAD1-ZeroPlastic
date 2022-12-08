@@ -39,7 +39,7 @@
         @foreach ($produk as $item)
         <div class="col-6 col-md-4 mb-3">
             <a href="{{ route('product.detail',$item->prod_slug) }}" class="text-decoration-none" style="color: black">
-                <div class="card prod-card-animate">
+                <div class="card card-animate">
                     <img src="{{ asset('asset-product/'. $item->gambar) }}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title card-text-title h2-text">{{ $item->nama }}</h5>
