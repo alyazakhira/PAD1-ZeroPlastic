@@ -37,17 +37,21 @@
 
     <section class="row mt-4 mb-2">
         @foreach ($artikel as $item)
-        <div class="col-6 col-md-4 mb-3">
-            <a href="{{ route('article.detail',$item->ar_slug) }}" class="text-decoration-none" style="color: black">
-                <div class="card card-animate">
-                    <img src="{{ asset('asset-article/'. $item->gambar) }}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title card-text-title h2-text">{{ $item->judul }}</h5>
-                        <p class="card-text card-text-par label-text">{{ $item->ringkasan }}</p>
+        <a href="{{ route('article.detail',$item->ar_slug) }}" class="text-decoration-none" style="color: black">
+            <div class="card card-animate mb-3">
+                <div class="row g-0">
+                    <div class="col-md-3">
+                        <img src="{{ asset('asset-article/'. $item->gambar) }}" class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body ms-2 me-3">
+                            <h3 class="card-title h2-text fw-bold">{{ $item->judul }}</h3>
+                            <p class="card-text label-text">{{ $item->ringkasan }}</p>
+                        </div>
                     </div>
                 </div>
-            </a>
-        </div>
+            </div>
+        </a>
         @endforeach
     </section>
 
