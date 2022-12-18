@@ -19,8 +19,17 @@
         <!-- Custom CSS -->
         <link rel="stylesheet" href={{ asset('asset-style/font.css') }}>
         <link rel="stylesheet" href={{ asset('asset-style/guest-style2.css') }}>
+
+        <style>
+            mark{
+                background: #f6aa30;
+                color: black;
+            }
+        </style>
+
+
     </head>
-    <body onload="load()">
+    <body onload="load()" id="context">
         
         {{-- Navbar --}}
         <nav class="navbar navbar-expand-md navbar-dark sticky-top top-0 navbar-main">
@@ -136,7 +145,7 @@
 
         <!-- Article -->
         <div class="container my-5">
-
+            <p class="h1-text text-center my-3">Artikel Terkait</p>
             {{-- Desktop --}}
             <div id="slider" class="carousel slide d-none d-sm-block" data-bs-ride="true">
                 <div class="carousel-inner">
@@ -233,21 +242,20 @@
         </div>
 
         <!-- Footer -->
-        <footer class="py-5 footer-main">
+        <footer class="mt-5 py-5 footer-main">
             <div class="container">
                 <div class="row gap-5">
                     <div class="col-md-6 mb-3" id="berlangganan">
-                        <form class="rounded-4 p-4 form-footer" action="https://gmail.us13.list-manage.com/subscribe/post?u=c0c4345411bcac159d9966b12&amp;id=d67fa84e7f&amp;f_id=00d491e2f0" method="post">
+                        <form class="rounded-4 p-4 form-footer" action="{{ route('subscribe') }}" method="post">
                             @csrf
                             <h3 class="text-center subs">Berlangganan</h3>
                             <p class="text-center pb-4">Masukkan email Anda untuk mendapatkan informasi terbaru dari Zero Plastic</p>
                             <div class="form-floating mb-3">
-                                <!-- <input type="email" name="subscriber_email"class="form-control rounded-3" id="userEmail" placeholder="name@example.com">  -->
-                                <input type="email" name="EMAIL"class="form-control rounded-3" id="userEmail" placeholder="name@example.com"> 
-                                <label for="userEmail">Email</label>                         
+                                <input type="email" name="email" class="form-control rounded-3" id="email" placeholder="name@example.com"> 
+                                <label for="email">Email</label>                         
                             </div>
                             <div class="d-flex justify-content-center">
-                                <button type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn btn-secondary">Kirim</button>
+                                <button type="submit" class="btn btn-secondary">Kirim</button>
                             </div>
                         </form>
                     </div>
@@ -287,6 +295,8 @@
 
         <script src="asset-js/script.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/mark.js/7.0.0/jquery.mark.min.js"></script>
         <script>
             function animate(obj, initVal, lastVal, duration) {
                let startTime = null;
@@ -325,5 +335,15 @@
                animate(text2, 0, 70, 4000);
             }
          </script>
+
+        <script>
+            // find function for search bar
+            $(function() {
+                $(".search").on("input.highlight", function() {
+                    var searchTerm = $(this).val();
+                    $("#context").unmark().mark(searchTerm);
+                });
+            });
+        </script>
     </body>
 </html>

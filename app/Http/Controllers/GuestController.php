@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Article;
 use App\Models\Product;
+use App\Models\Subscriber;
 use App\Models\CarouselHeader;
 
 class GuestController extends Controller
@@ -52,5 +53,12 @@ class GuestController extends Controller
         $no_product = 0;
         
         return view('guest.search-result', compact('article', 'product', 'no_article', 'no_product', 'key'));
+    }
+
+    public function subscribe(Request $request){
+        $subs = new Subscriber;
+        $subs->email = $request->email;
+        $subs->save();
+        return redirect('/');
     }
 }

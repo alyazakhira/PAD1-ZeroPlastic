@@ -39,6 +39,7 @@ class DatabaseSeeder extends Seeder
             ArticleSeeder::class,
             ProductSeeder::class,
             CarouselHeaderSeeder::class,
+            SubscriberSeeder::class,
         ]);
     }
 }

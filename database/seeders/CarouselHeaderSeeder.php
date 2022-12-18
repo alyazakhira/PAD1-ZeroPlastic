@@ -22,7 +22,7 @@ class CarouselHeaderSeeder extends Seeder
             'gambar' => 'infografis-1.png'
         ]);
         CarouselHeader::create([
-            'gambar' => 'infografis-2.png'
+            'gambar' => 'infografis-2.jpg'
         ]);
     }
 }
