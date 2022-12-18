@@ -27,7 +27,6 @@
             }
         </style>
 
-
     </head>
     <body onload="load()" id="context">
         
@@ -293,10 +292,18 @@
             </div>
         </footer>
 
-        <script src="asset-js/script.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/mark.js/7.0.0/jquery.mark.min.js"></script>
+        <script>
+            // find function for search bar
+            $(function() {
+                $(".search").on("input.highlight", function() {
+                    var searchTerm = $(this).val();
+                    $("#context").unmark().mark(searchTerm);
+                });
+            });
+        </script>
         <script>
             function animate(obj, initVal, lastVal, duration) {
                let startTime = null;
@@ -336,14 +343,6 @@
             }
          </script>
 
-        <script>
-            // find function for search bar
-            $(function() {
-                $(".search").on("input.highlight", function() {
-                    var searchTerm = $(this).val();
-                    $("#context").unmark().mark(searchTerm);
-                });
-            });
-        </script>
+
     </body>
 </html>
