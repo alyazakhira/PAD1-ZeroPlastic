@@ -27,6 +27,7 @@ class ArticleController extends Controller
     public function store(StoreArticleRequest $request){
         $artikel = new Article;
         $artikel->judul = $request->judul;
+        $artikel->id_penulis = $request->id_penulis;
         $artikel->ar_slug = Str::slug($request->judul, '-').'-'.$artikel->id;
         $artikel->ringkasan = $request->ringkasan;
         $artikel->artikel = $request->artikel;
@@ -58,6 +59,7 @@ class ArticleController extends Controller
     public function update(UpdateArticleRequest $request, $id){
         $artikel = Article::find($id);
         $artikel->judul = $request->judul;
+        $artikel->id_penulis = $request->id_penulis;
         $artikel->ar_slug = Str::slug($request->judul, '-').'-'.$id;
         $artikel->ringkasan = $request->ringkasan;
         $artikel->artikel = $request->artikel;

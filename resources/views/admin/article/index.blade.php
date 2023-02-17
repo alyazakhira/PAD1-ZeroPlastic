@@ -37,6 +37,7 @@
                         <tr>
                             <th>No</th>
                             <th>Judul</th>
+                            <th>Penulis</th>
                             <th>Ringkasan</th>
                             <th colspan="3">Aksi</th>
                         </tr>
@@ -46,6 +47,7 @@
                         <tr>
                             <td>{{ $no++ }}</td>
                             <td>{{ $row->judul }}</td>
+                            <td>{{ $row->user->name }}</td>
                             <td>{{ $row->ringkasan }}</td>
                             <td>
                                 <a type="button" class="btn btn-outline-success" href="{{ route('article.edit', $row->id) }}">

@@ -25,6 +25,22 @@
                 background: #f6aa30;
                 color: black;
             }
+            .btn-login-zp {
+                --bs-btn-color: black;
+                --bs-btn-bg: #E6F6F4;
+                --bs-btn-border-color: #E6F6F4;
+                --bs-btn-hover-color: black;
+                --bs-btn-hover-bg: #D9F2EF;
+                --bs-btn-hover-border-color: #D9F2EF;
+                --bs-btn-focus-shadow-rgb: 49, 132, 253;
+                --bs-btn-active-color: black;
+                --bs-btn-active-bg: #B0E4DD;
+                --bs-btn-active-border-color: #B0E4DD;
+                --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+                --bs-btn-disabled-color: black;
+                --bs-btn-disabled-bg: #0d6efd;
+                --bs-btn-disabled-border-color: #0d6efd;
+            }
         </style>
         
         @yield('add-style')
@@ -58,6 +74,7 @@
                             </svg>
                         </button>
                     </form>
+                    <a class="btn btn-login-zp" type="button" href="/member-login">Login</a>
                 </ul>
             </div>
         </nav>

@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Article;
 use App\Models\Product;
+use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
@@ -18,7 +19,8 @@ class AdminController extends Controller
         $produk = Product::orderBy('id','desc')->take(3)->get();
         $jumlah_artikel = Article::count();
         $jumlah_produk = Product::count();
-        return view('admin.dashboard',compact('artikel','produk','jumlah_artikel','jumlah_produk'));
+        $jumlah_member = DB::table('users')->where('isWebAdmin', false)->get()->count();
+        return view('admin.dashboard',compact('artikel','produk','jumlah_artikel','jumlah_produk','jumlah_member'));
     }
     
     public function authenticate(Request $request){
@@ -34,7 +36,7 @@ class AdminController extends Controller
         }
  
         return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
+            'email' => 'Data yang Anda masukkan tidak sesuai dengan data kami.',
         ])->onlyInput('email');
     }
     

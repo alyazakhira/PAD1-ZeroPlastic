@@ -63,6 +63,7 @@
                     </div>
                 </div>
             </div>
+            <input type="number" class="visually-hidden" value="{{ Auth::user()->id }}" name="id_penulis">
 
             <div class="row mt-5">
                 <div class="d-grid">

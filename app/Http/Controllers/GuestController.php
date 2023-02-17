@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use App\Models\BankSampah;
 use App\Models\Article;
 use App\Models\Product;
 use App\Models\Subscriber;
@@ -19,7 +20,8 @@ class GuestController extends Controller
         $artikelLgN = DB::table('articles')->skip(Article::count()-6)->take(3)->get();
         $artikelSm = DB::table('articles')->skip(Article::count()-1)->take(1)->get();
         $artikelSmN = DB::table('articles')->skip(Article::count()-6)->take(5)->get();
-        return view('guest.landing-page',compact('artikelLg','artikelLgN','artikelSm','artikelSmN','header1','header2','header3'));
+        $bs = BankSampah::orderBy('id')->paginate(5);
+        return view('guest.landing-page',compact('artikelLg','artikelLgN','artikelSm','artikelSmN','header1','header2','header3','bs'));
     }
 
     public function listArticle(){
@@ -56,9 +58,7 @@ class GuestController extends Controller
     }
 
     public function subscribe(Request $request){
-        $subs = new Subscriber;
-        $subs->email = $request->email;
-        $subs->save();
-        return redirect('/');
+        $email  = $request->email;
+        return view('member.register', compact('email'));
     }
 }

@@ -7,5 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {
-    use HasFactory;
+    protected $table = 'articles';
+
+    public function user(){
+        return $this->belongsTo(User::class, 'id_penulis');
+    }
 }

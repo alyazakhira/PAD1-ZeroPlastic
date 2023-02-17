@@ -1,0 +1,176 @@
+.flip-card {
+    background-color: transparent;
+    width: 60%;
+    height: 400px;
+    /* perspective: 1000px; */
+    font-family: sans-serif;
+}
+
+.flip-card-title {
+    font-size: 1.5em;
+    font-weight: 900;
+    text-align: center;
+    margin: 0;
+    color: white;
+}
+
+.flip-card-content {
+    text-align: center;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front-1,.flip-card-front-2, .flip-card-back {
+    box-shadow: 0 8px 14px 0 rgba(0,0,0,0.2);
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border: 1px solid #FEEACF;
+    border-radius: 1rem;
+}
+
+.flip-card-front-1 {
+    background-image: url("bgcard1.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.flip-card-front-2 {
+    background-image: url("bgcard2.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.flip-card-back {
+    background: #595248;
+    transform: rotateY(180deg);
+    color: white;
+}
+
+.btn-outline-member-zp {
+    --bs-btn-color: #BFB09B;
+    --bs-btn-border-color: #BFB09B;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #988C7C;
+    --bs-btn-hover-border-color: #988C7C;
+    --bs-btn-focus-shadow-rgb: 108, 117, 125;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #CBBBA6;
+    --bs-btn-active-border-color: #CBBBA6;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #E6F6F4;
+    --bs-btn-disabled-bg: transparent;
+    --bs-btn-disabled-border-color: #E6F6F4;
+    --bs-gradient: none;
+}
+
+.card-header{
+    background-color: #115F76;
+}
+
+.card-body{
+    background-color: #988C7C;
+}
+
+.list-group-item{
+    background-color: #FEEACF;
+}
+
+.new-btn{
+    background-color: #595248;
+}
+
+.scrollable{
+    overflow-y: auto;
+    max-height: 14.3rem;
+}
+
+.card-animate:hover{
+    transform: scale(0.95);
+    transition: all 0.3s;
+}
+
+.card-body-animate:hover {
+    transform: scale(0.95);
+    transition: all 0.3s;
+}
+
+.card-icon {
+    opacity: 0;
+    transform: translateX(-20%);
+    color: white;
+    transition: all .3s ease-in-out;
+}
+
+.card-animate:hover .card-icon {
+    opacity: 1;
+    transform: translateX(20%);
+}
+
+.file-upload {
+    background-color: #ffffff;
+}
+
+.file-upload-content {
+    display: none;
+    text-align: center;
+}
+
+.file-upload-input {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.image-upload-wrap {
+    border: 1px dashed black;
+    position: relative;
+}
+
+.image-dropping, .image-upload-wrap:hover {
+    background: rgba(160, 214, 180, 0.19);
+    border: 4px dashed #ffffff;
+    }
+
+.image-title-wrap {
+    padding: 0 15px 15px 15px;
+    color: #222;
+}
+
+.drag-text {
+    text-align: center;
+}
+
+.drag-text h3 {
+    font-weight: 100;
+    text-transform: uppercase;
+    color: black;
+    padding: 60px 0;
+}
+
+.file-upload-image {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+}

@@ -18,6 +18,7 @@ class ArticleSeeder extends Seeder
 
         Article::create([
             'judul' => 'Sampah, Mengintip Masa Depan yang Ditimbulkannya',
+            'id_penulis' => 1,
             'ar_slug' => 'sampah-mengintip-masa-depan-yang-ditimbulkannya-1',
             'ringkasan' => 'Apa yang akan terjadi bila sampah tidak dikelola dengan baik?',
             'artikel' => 'Dilansir dari situs resmi DPR RI, Anggota Komisi IV DPR RI Suhardi Duka menyoroti data 
@@ -30,6 +31,7 @@ class ArticleSeeder extends Seeder
 
         Article::create([
             'judul' => 'Pemanasan Global dan Dampak Buruknya Bagi Kehidupan Bumi',
+            'id_penulis' => 1,
             'ar_slug' => 'pemanasan-global-dan-dampak-buruknya-bagi-kehidupan-bumi-2',
             'ringkasan' => 'Pemanasan global adalah suatu fenomena global yang dipicu oleh kegiatan manusia terutama yang berkaitan dengan penggunaan bahan fosil dan kegiatan alih guna lahan.',
             'artikel' => 'Bumi adalah habitat dan tempat tinggal untuk berbagai makhluk hidup yang ada di dunia, termasuk manusia. Namun, semakin hari bumi semakin memanas akibat pemanasan global. Apakah Sobat SMP sudah mengetahui apa itu pemanasan global?
@@ -52,6 +54,7 @@ class ArticleSeeder extends Seeder
 
         Article::create([
             'judul' => 'Mengenal Plastik dan Penanganan Sampah Plastik',
+            'id_penulis' => 1,
             'ar_slug' => 'mengenal-plastik-dan-penanganan-sampah-plastik-3',
             'ringkasan' => 'Keberadaan sampah plastik harus diakui tidak dapat terhindarkan, hampir di setiap penjuru lingkungan sekitar kita.',
             'artikel' => 'Keberadaan sampah plastik harus diakui tidak dapat terhindarkan, hampir di setiap penjuru lingkungan sekitar kita.

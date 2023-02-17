@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
+            $table->string('id_penulis')->references('id')->on('users')->onDelete('cascade');
             $table->string('judul');
             $table->string('ar_slug');
             $table->string('ringkasan');

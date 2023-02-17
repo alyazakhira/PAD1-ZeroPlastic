@@ -16,30 +16,60 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
-
+        // Web Admin
         User::create([
             'name' => 'Alya Zakhira',
             'email' => 'zakhiralya@gmail.com',
-            'password' => Hash::make('12345')
+            'password' => Hash::make('12345'),
+            'isContentCreator' => true,
+            'isBSAdmin' => true,
+            'isWebAdmin' => true,
         ]);
 
         User::create([
             'name' => 'Sky Zonhori',
             'email' => 'sky.zonhori@gmail.com',
-            'password' => Hash::make('galaxsky')
+            'password' => Hash::make('galaxsky'),
+            'isContentCreator' => true,
+            'isBSAdmin' => true,
+            'isWebAdmin' => true,
+        ]);
+
+        // Full privilege member
+        User::create([
+            'name' => 'Elyra Dina',
+            'email' => 'elyra.dina.oktaviani@gmail.com',
+            'password' => Hash::make('12345'),
+            'isContentCreator' => true,
+            'isBSAdmin' => true,
+            'isWebAdmin' => false,
+        ]);
+
+        // Admin bank sampah only
+        User::create([
+            'name' => 'Luthfia Nisa',
+            'email' => 'luthfianisa@gmail.com',
+            'password' => Hash::make('12345'),
+            'isContentCreator' => false,
+            'isBSAdmin' => true,
+            'isWebAdmin' => false,
+        ]);
+
+        // Content creator only
+        User::create([
+            'name' => 'Zafna Khairunnisa',
+            'email' => 'zafna.khairunnisa@gmail.com',
+            'password' => Hash::make('12345'),
+            'isContentCreator' => true,
+            'isBSAdmin' => false,
+            'isWebAdmin' => false,
         ]);
 
         $this->call([
             ArticleSeeder::class,
             ProductSeeder::class,
             CarouselHeaderSeeder::class,
-            SubscriberSeeder::class,
+            BankSampahSeeder::class,
         ]);
     }
 }
